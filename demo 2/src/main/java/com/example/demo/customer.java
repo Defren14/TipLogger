@@ -50,4 +50,23 @@ public class customer {
     public void setTransactionID(int transactionID) {
         this.transactionID = transactionID;
     }
+    public String getDate() {
+        return date;
+    }
+    public void setDate(String date) {
+        this.date = date;
+    }
+    public String getNotes() {
+        return notes;
+    }
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
+    public String getOrderSize() {
+        return orderSize;
+    }
+    public void setOrderSize(String orderSize) {
+        this.orderSize = orderSize;
+    }
+
 }
