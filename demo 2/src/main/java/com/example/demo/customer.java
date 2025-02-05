@@ -16,13 +16,25 @@ public class customer {
     @Column(name = "customerName")
     private String customerName;
 
+    @Column(name = "orderSize")
+    private String orderSize;
+
+    @Column(name = "notes")
+    private String notes;
+
+    @Column(name = "date")
+    private String date;
+
     // Constructors (default required by JPA)
     public customer() {}
 
-    public customer(int transactionID, float tipAmount, String customerName) {
+    public customer(int transactionID, float tipAmount, String customerName, String orderSize, String notes, String date) {
         this.transactionID = transactionID;
         this.tipAmount = tipAmount;
         this.customerName = customerName;
+        this.orderSize = orderSize;
+        this.notes = notes;
+        this.date = date;
     }
 
     // Getters and Setters
