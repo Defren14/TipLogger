@@ -7,6 +7,9 @@ import jakarta.persistence.*;
 public class customer {
 
     @Id  // Primary Key
+    @Column(name = "transactionID")
+    private int transactionID;
+
     @Column(name = "tipAmount")
     private float tipAmount;
 
@@ -16,7 +19,8 @@ public class customer {
     // Constructors (default required by JPA)
     public customer() {}
 
-    public customer(float tipAmount, String customerName) {
+    public customer(int transactionID, float tipAmount, String customerName) {
+        this.transactionID = transactionID;
         this.tipAmount = tipAmount;
         this.customerName = customerName;
     }
@@ -27,4 +31,11 @@ public class customer {
 
     public float getTipAmount() { return tipAmount; }
     public void setTipAmount(float tipAmount) { this.tipAmount = tipAmount; }
+
+    public int getTransactionID() {
+        return transactionID;
+    }
+    public void setTransactionID(int transactionID) {
+        this.transactionID = transactionID;
+    }
 }
