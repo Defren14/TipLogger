@@ -5,8 +5,6 @@ import java.util.Date;
 import java.util.Random;
 import java.util.TimeZone;
 
-import com.example.demo.customer;
-import com.example.demo.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,13 +27,13 @@ public class CustomerService {
         int day = cal.get(Calendar.DAY_OF_MONTH);
         String fullDate = String.valueOf(year);
         if (month < 10) {
-            fullDate += "0" + String.valueOf(month);
+            fullDate += "0" + month;
         }
         else {
             fullDate += String.valueOf(month);
         }
         if (day < 10) {
-            fullDate += "0" + String.valueOf(day);
+            fullDate += "0" + day;
         }
         else {
             fullDate += String.valueOf(day);
