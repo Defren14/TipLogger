@@ -1,0 +1,22 @@
+https://3.145.179.66:8443/customer/add?tipAmount=15.10&customerName=BECKY&orderSize=NULL&notes=NULL
+
+1.) Open terminal and do the following commands :
+
+cd Downloads/TipLoggerServer/demo\ 2
+sudo mvn clean package
+
+2.) Go into Downloads -> TipLoggerServer -> demo 2 -> target
+
+3.) Rename the jar to be demo#
+
+4.) Go back to terminal and run the following commands
+
+scp -i "/Users/admin/Downloads/Key Pair.pem" "/Users/admin/Downloads/TipLoggerServer/demo 2/target/demo#.jar" ec2-user@3.145.179.66:/home/ec2-user
+
+5.) Log into AWS and go into your EC2 instance
+
+6.) Run the following commands :
+
+ps aux (to check what jar is running)
+kill $(pgrep -f demo4.jar)
+nohup java -jar demo#.jar > output.log 2>&1 &
