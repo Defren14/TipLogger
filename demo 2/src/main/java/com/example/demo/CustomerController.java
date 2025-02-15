@@ -11,7 +11,7 @@ public class CustomerController {
     private CustomerService customerService;
 
     @GetMapping("/add")
-    public customer addCustomer(@RequestParam float tipAmount, @RequestParam String customerName, @RequestParam String orderSize, @RequestParam String notes) {
+    public int addCustomer(@RequestParam float tipAmount, @RequestParam String customerName, @RequestParam String orderSize, @RequestParam String notes) {
         if (customerName.equals("NULL")) {
             customerName = null;
         }
@@ -21,6 +21,15 @@ public class CustomerController {
         if (notes.equals("NULL")) {
             notes = null;
         }
-        return customerService.addCustomer(tipAmount, customerName, orderSize, notes);
+
+
+        return customerService.addCustomer(tipAmount, customerName, orderSize, notes).getTransactionID();
+
     }
+
+    @GetMapping("/getTip")
+    public float getTipFromTransactionID(@RequestParam int transactionID) {
+        return customerService.getTipFromTransactionID(transactionID);
+    }
+
 }

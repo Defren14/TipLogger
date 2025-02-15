@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import com.example.demo.CustomerRepository;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Random;
@@ -12,9 +13,14 @@ import org.springframework.stereotype.Service;
 public class CustomerService {
 
     @Autowired
-    private CustomerRepository customerRepository;
+    CustomerRepository customerRepository;
 
     Random rand = new Random();
+
+    public float getTipFromTransactionID(int transactionID) {
+
+        return customerRepository.getTipFromTransactionID(transactionID);
+    }
 
     public customer addCustomer(float tipAmount, String customerName, String orderSize, String notes) {
         int transactionID = rand.nextInt(99999999); // Random 8 digit ID;
