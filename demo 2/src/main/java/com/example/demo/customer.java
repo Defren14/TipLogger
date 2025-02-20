@@ -25,16 +25,20 @@ public class customer {
     @Column(name = "date")
     private String date;
 
+    @Column(name = "address")
+    private String address;
+
     // Constructors (default required by JPA)
     public customer() {}
 
-    public customer(int transactionID, float tipAmount, String customerName, String orderSize, String notes, String date) {
+    public customer(int transactionID, float tipAmount, String customerName, String orderSize, String notes, String date, String address) {
         this.transactionID = transactionID;
         this.tipAmount = tipAmount;
         this.customerName = customerName;
         this.orderSize = orderSize;
         this.notes = notes;
         this.date = date;
+        this.address = address;
     }
 
     // Getters and Setters
@@ -68,5 +72,10 @@ public class customer {
     public void setOrderSize(String orderSize) {
         this.orderSize = orderSize;
     }
-
+    public String getAddress() {
+        return address;
+    }
+    public void setAddress(String address) {
+        this.address = address;
+    }
 }

@@ -22,7 +22,7 @@ public class CustomerService {
         return customerRepository.getTipFromTransactionID(transactionID);
     }
 
-    public customer addCustomer(float tipAmount, String customerName, String orderSize, String notes) {
+    public customer addCustomer(float tipAmount, String customerName, String orderSize, String notes, String address) {
         int transactionID = rand.nextInt(99999999); // Random 8 digit ID;
 
         Date date = new Date(); // your date
@@ -45,7 +45,7 @@ public class CustomerService {
             fullDate += String.valueOf(day);
         }
 
-        customer newCustomer = new customer(transactionID, tipAmount, customerName, orderSize, notes, fullDate);
+        customer newCustomer = new customer(transactionID, tipAmount, customerName, orderSize, notes, fullDate, address);
         return customerRepository.save(newCustomer);  // Saves the user to MySQL
     }
 }
